@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* ERROR FIX: Only use valid Tailwind classes here, 
+       defined in tailwind.config.js */
+    @apply bg-main-background text-text-primary;
+    
+    scroll-behavior: smooth;
+  }
+}
