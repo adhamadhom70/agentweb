@@ -55,7 +55,7 @@ const Contact = ({ selectedService }: ContactProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="#bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8 mb-8">
+            <div className="bg-charcoal-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8 mb-8">
               <h3 className="font-serif text-3xl text-text-dark mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -107,7 +107,7 @@ const Contact = ({ selectedService }: ContactProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <form onSubmit={handleSubmit} className="#bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8">
+            <form onSubmit={handleSubmit} className="bg-charcoal-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block font-sans text-text-dark/90 mb-2">Full Name *</label>
@@ -117,7 +117,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
                 <div>
@@ -128,7 +128,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
                 <div>
@@ -151,7 +151,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   >
                     <option value="">Select a service</option>
                     <option value="Intimate Gathering">Intimate Gathering</option>
@@ -175,7 +175,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
                 <div>
@@ -186,7 +186,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                     value={formData.guests}
                     onChange={handleChange}
                     min="1"
-                    className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
               </div>
@@ -198,7 +198,7 @@ const Contact = ({ selectedService }: ContactProps) => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full #bg-card-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors resize-none"
+                  className="w-full bg-charcoal-light/50 border border-gold/30 rounded px-4 py-3 text-text-dark font-sans focus:outline-none focus:border-gold transition-colors resize-none"
                   placeholder="Tell us about your vision..."
                 />
               </div>

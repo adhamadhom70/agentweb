@@ -30,7 +30,6 @@ const Hero = ({ onBookNow }: HeroProps) => {
         className="absolute inset-0"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-dark via-charcoal to-charcoal-light">
-          <div className="absolute inset-0 bg-[url('/agency.png')] bg-cover bg-center opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
 
           {/* Subtle texture overlay for fabric effect */}

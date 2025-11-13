@@ -38,7 +38,7 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="fixed top-6 right-6 z-50"
       >
-        <div className="#bg-card-light/90 backdrop-blur-md border border-gold/20 rounded-lg px-6 py-3 shadow-2xl">
+        <div className="bg-charcoal-light/90 backdrop-blur-md border border-gold/20 rounded-lg px-6 py-3 shadow-2xl">
           <div className="flex gap-8">
             {navItems.map((item) => (
               <motion.button

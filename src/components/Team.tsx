@@ -43,7 +43,7 @@ const Team = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-gold/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative #bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg overflow-hidden">
+              <div className="relative bg-charcoal-light/50 backdrop-blur-md border border-gold/20 rounded-lg overflow-hidden">
                 <div className="aspect-square bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
                   <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border border-gold/30">
                     <User className="w-16 h-16 text-primary-red" />

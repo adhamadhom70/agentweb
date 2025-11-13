@@ -1,13 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    /* ERROR FIX: Only use valid Tailwind classes here, 
-       defined in tailwind.config.js */
-    @apply bg-main-background text-text-primary;
-    
+    @apply bg-background text-text-dark;
     scroll-behavior: smooth;
   }
 }

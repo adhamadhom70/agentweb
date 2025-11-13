@@ -76,7 +76,7 @@ const Services = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative #bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8 h-full">
+              <div className="relative bg-charcoal-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8 h-full">
                 <service.icon className="w-12 h-12 text-primary-red mb-6" />
                 <h3 className="font-serif text-3xl text-text-dark mb-6">{service.category}</h3>
                 <ul className="space-y-3">

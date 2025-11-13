@@ -72,7 +72,7 @@ function App() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            // WAS: #bg-card-light 
+            // WAS: bg-charcoal-light 
             className="fixed inset-0 z-50 bg-background flex items-center justify-center" 
           >
             <div className="text-center">
@@ -99,7 +99,7 @@ function App() {
 
       <ParticleSystem />
 
-      <div className="#bg-card-light">
+      <div className="bg-charcoal-light">
         <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
         <div ref={sectionRefs.home}>
@@ -126,7 +126,7 @@ function App() {
           <Contact selectedService={selectedService} />
         </div>
 
-        <footer className="#bg-card-light border-t border-gold/20 py-12">
+        <footer className="bg-charcoal-light border-t border-gold/20 py-12">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="font-serif text-primary-red text-xl mb-2">Luxury Hospitality Concierge</p>
             <p className="font-sans text-text-dark/60 text-sm">
