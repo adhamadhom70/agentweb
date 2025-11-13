@@ -4,20 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-red': '#8B0000',
-        'gold': '#D4AF37',
-        'gold-light': '#E5C158',
-        'gold-dark': '#B8941F',
-        'charcoal': '#1a1a1a',
-        'charcoal-light': '#2a2a2a',
-        'charcoal-dark': '#0f0f0f',
-        'background': '#0a0a0a',
-        'background-light': '#0f0f0f',
-        'text-dark': '#e5e5e5',
+        'navy': '#1a3a52',
+        'navy-dark': '#0f1f2e',
+        'forest': '#2d5a3d',
+        'forest-dark': '#1f3d2a',
+        'silver': '#e8e8e8',
+        'silver-dark': '#d0d0d0',
+        'off-white': '#f9f9f9',
+        'off-white-warm': '#faf8f6',
+        'stone': '#7a8a8f',
+        'stone-light': '#a8b5b8',
       },
       fontFamily: {
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        '128': '32rem',
       },
     },
   },
