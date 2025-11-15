@@ -1,6 +1,6 @@
 import SEO from './components/SEO';
 import StructuredData from './components/StructuredData';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'; // Added lazy, Suspense
 import { motion, AnimatePresence } from 'framer-motion';
 import WhatsAppContactButton from './components/WhatsAppContactButton';
 import ReactGA from 'react-ga4';
@@ -10,14 +10,30 @@ import ParticleSystem from './components/ParticleSystem';
 
 import About from './components/About';
 import Team from './components/Team';
-import Testimonials from './components/Testimonials';
+// import Testimonials from './components/Testimonials'; // REMOVED: Replaced by lazy import
 import Services from './components/Services';
 import Catalog from './components/Catalog';
 import Contact from './components/Contact';
 import PremiumHero from './components/PremiumHero';
 import ProfessionalStatsBar from './components/ProfessionalStatsBar';
-import TrustBadgesSection from './components/TrustBadgesSection';
+// import TrustBadgesSection from './components/TrustBadgesSection'; // REMOVED: Replaced by lazy import
 import ProfessionalFooter from './components/ProfessionalFooter';
+
+import PullToRefresh from 'react-simple-pull-to-refresh';
+
+ 
+
+// --- START: NEW LAZY IMPORTS ---
+const LazyTestimonials = lazy(() => import('./components/Testimonials'));
+const LazyTrustBadgesSection = lazy(() => import('./components/TrustBadgesSection'));
+
+// Simple placeholder for the Loading Spinner component
+const LoadingSpinner = () => (
+  <div className="flex justify-center items-center py-16">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+  </div>
+);
+// --- END: NEW LAZY IMPORTS ---
 
 
 function App(): JSX.Element {
@@ -57,6 +73,7 @@ function App(): JSX.Element {
     }
   };
 
+
   const handleBookNow = () => scrollToSection('contact');
 
   const handleBookService = (service: string) => {
@@ -88,7 +105,7 @@ function App(): JSX.Element {
 
   return (
     <>
-          <SEO />
+      <SEO />
       <StructuredData />
 
       <AnimatePresence>
@@ -120,10 +137,11 @@ function App(): JSX.Element {
 
       <ParticleSystem />
 
+  <PullToRefresh onRefresh={async () => window.location.reload()}>
       <div className="bg-card-light">
         <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
-      <div ref={sectionRefs.home}>
+        <div ref={sectionRefs.home}>
           <PremiumHero onBookNow={handleBookNow} />
         </div>
 
@@ -135,14 +153,22 @@ function App(): JSX.Element {
           <Team />
         </div>
 
+        {/* --- START: Testimonials section with Suspense --- */}
         <div ref={sectionRefs.testimonials}>
-          <Testimonials />
+          <Suspense fallback={<LoadingSpinner />}>
+            <LazyTestimonials />
+          </Suspense>
         </div>
+        {/* --- END: Testimonials section with Suspense --- */}
 
         <ProfessionalStatsBar />
-        
-        <TrustBadgesSection />
-        
+
+        {/* --- START: TrustBadgesSection section with Suspense --- */}
+        <Suspense fallback={<LoadingSpinner />}>
+          <LazyTrustBadgesSection />
+        </Suspense>
+        {/* --- END: TrustBadgesSection section with Suspense --- */}
+
 
         <div ref={sectionRefs.services}>
           <Services />
@@ -156,15 +182,19 @@ function App(): JSX.Element {
           <Contact selectedService={selectedService} />
         </div>
 
-        
+
         <ProfessionalFooter />
-        
-        <WhatsAppContactButton 
+
+        <WhatsAppContactButton
           phoneNumber="1234567890"
           message="Hello! I'm interested in your luxury concierge services."
           position="bottom-right"
         />
       </div>
+
+      
+      </PullToRefresh>
+      
     </>
   );
 }
