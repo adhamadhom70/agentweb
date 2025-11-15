@@ -7,8 +7,7 @@ const ParticleSystem = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const ctx = canvas.getContext('2d')!;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -27,8 +26,8 @@ const ParticleSystem = () => {
       maxLife: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas?.width || window.innerWidth);
+        this.y = Math.random() * (canvas?.height || window.innerHeight);
         this.size = Math.random() * 3 + 1;
         this.speedX = (Math.random() - 0.5) * 0.5;
         this.speedY = Math.random() * 0.3 + 0.1;
@@ -44,8 +43,8 @@ const ParticleSystem = () => {
 
         if (this.life > this.maxLife) {
           this.life = 0;
-          this.y = canvas.height + 10;
-          this.x = Math.random() * canvas.width;
+          this.y = (canvas?.height || window.innerHeight) + 10;
+          this.x = Math.random() * (canvas?.width || window.innerWidth);
         }
 
         const lifeRatio = this.life / this.maxLife;
