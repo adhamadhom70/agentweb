@@ -1,113 +1,137 @@
 import { motion } from 'framer-motion';
-import { ChefHat, Home, Sparkles, Wine, Music, Users } from 'lucide-react';
+import { CheckCircle, Users, Briefcase, Award } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+  
   const services = [
     {
-      category: 'Premium Catering',
-      icon: ChefHat,
-      items: [
-        'Michelin-Starred Chef Collaborations',
-        'Bespoke Menu Curation',
-        'Wine Pairing & Sommelier Service',
-        'Private Dining Experiences',
-        'Corporate Event Catering',
-        'Seasonal Tasting Menus',
-      ],
+      icon: Users,
+      title: t('services.executive.title'),
+      description: t('services.executive.description'),
+      metrics: t('services.executive.metrics'),
     },
     {
-      category: 'Luxury Hostel Services',
-      icon: Home,
-      items: [
-        'Boutique Accommodation Management',
-        'Personalized Guest Experiences',
-        '24/7 Concierge Assistance',
-        'Premium Amenities Coordination',
-        'Local Experience Curation',
-        'VIP Airport Transfers',
-      ],
+      icon: Briefcase,
+      title: t('services.specialized.title'),
+      description: t('services.specialized.description'),
+      metrics: t('services.specialized.metrics'),
     },
     {
-      category: 'Event Management',
-      icon: Sparkles,
-      items: [
-        'Exclusive Venue Selection',
-        'Complete Event Orchestration',
-        'Luxury Décor & Styling',
-        'Entertainment Booking',
-        'Photography & Videography',
-        'Post-Event Services',
-      ],
+      icon: Award,
+      title: t('services.vetting.title'),
+      description: t('services.vetting.description'),
+      metrics: t('services.vetting.metrics'),
+    },
+    {
+      icon: CheckCircle,
+      title: t('services.support.title'),
+      description: t('services.support.description'),
+      metrics: t('services.support.metrics'),
     },
   ];
 
-  const additionalServices = [
-    { icon: Wine, text: 'Private Tastings' },
-    { icon: Music, text: 'Live Entertainment' },
-    { icon: Users, text: 'Group Experiences' },
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-charcoal-dark to-charcoal py-32 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="relative py-24 md:py-32 bg-off-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          viewport={{ once: true }}
+          className="mb-20 text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-serif text-6xl md:text-7xl text-primary-red mb-6">Our Services</h2>
-          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
-          <p className="font-sans text-xl text-text-dark/70 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive hospitality solutions tailored to your exacting standards
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-8 h-px bg-forest" />
+            <span className="text-sm font-sans font-semibold text-forest tracking-widest uppercase">{t('services.overline')}</span>
+            <div className="w-8 h-px bg-forest" />
+          </div>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-navy mb-6">
+            {t('services.title')}
+          </h2>
+          <p className="text-lg text-stone font-sans">
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative #bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg p-8 h-full">
-                <service.icon className="w-12 h-12 text-primary-red mb-6" />
-                <h3 className="font-serif text-3xl text-text-dark mb-6">{service.category}</h3>
-                <ul className="space-y-3">
-                  {service.items.map((item) => (
-                    <li key={item} className="flex items-start">
-                      <span className="text-primary-red mr-3 mt-1">•</span>
-                      <span className="font-sans text-text-dark/70">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+        {/* Services Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20"
         >
-          {additionalServices.map((service, index) => (
-            <motion.div
-              key={service.text}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-br from-gold/10 to-gold/5 backdrop-blur-md border border-gold/30 rounded-lg px-8 py-4 flex items-center gap-3"
-            >
-              <service.icon className="w-6 h-6 text-primary-red" />
-              <span className="font-sans text-text-dark">{service.text}</span>
-            </motion.div>
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="group relative bg-off-white-warm border border-silver rounded-lg p-8 hover:shadow-lg transition-shadow"
+              >
+                {/* Hover accent line */}
+                <div className="absolute top-0 left-0 w-0 h-1 bg-forest group-hover:w-full transition-all duration-500 rounded-t-lg" />
+
+                {/* Icon */}
+                <div className="w-16 h-16 bg-forest/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-forest/15 transition-colors">
+                  <Icon className="w-8 h-8 text-forest" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-serif font-semibold text-navy mb-3">{service.title}</h3>
+                <p className="text-stone font-sans leading-relaxed mb-6">{service.description}</p>
+
+                {/* Metric */}
+                <div className="flex items-center gap-2 pt-6 border-t border-silver">
+                  <CheckCircle className="w-4 h-4 text-forest" />
+                  <span className="text-sm font-sans font-semibold text-navy">{service.metrics}</span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Trust Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-y border-silver"
+        >
+          {[
+            { number: '500+', label: t('services.stats.placements') },
+            { number: '98%', label: t('services.stats.satisfaction') },
+            { number: '85%', label: t('services.stats.retention') },
+            { number: '24/7', label: t('services.stats.support') },
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <p className="text-3xl md:text-4xl font-serif font-bold text-navy mb-2">{stat.number}</p>
+              <p className="text-sm text-stone font-sans">{stat.label}</p>
+            </div>
           ))}
         </motion.div>
       </div>

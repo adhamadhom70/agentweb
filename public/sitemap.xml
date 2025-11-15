@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Section -->
+  <url>
+    <loc>https://yourdomain.com/#about</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Team Section -->
+  <url>
+    <loc>https://yourdomain.com/#team</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Services Section -->
+  <url>
+    <loc>https://yourdomain.com/#services</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Catalog Section -->
+  <url>
+    <loc>https://yourdomain.com/#catalog</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://yourdomain.com/#contact</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Add more pages as you create them -->
+  <!-- Example: Blog Posts -->
+  <!--
+  <url>
+    <loc>https://yourdomain.com/blog/luxury-travel-tips</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  -->
+  
+</urlset>
+
+# ============================================
+# INSTRUCTIONS
+# ============================================
+
+# 1. Create a 'public' folder in your project root if it doesn't exist
+# 2. Create two files: robots.txt and sitemap.xml
+# 3. Copy the respective content above into each file
+# 4. Replace "yourdomain.com" with your actual domain
+# 5. Update lastmod dates when you make changes
+# 6. Add new URLs as you create more pages/sections
+
+# For Vite projects, files in 'public' folder are automatically 
+# served at the root URL, so:
+# - public/robots.txt → https://yourdomain.com/robots.txt
+# - public/sitemap.xml → https://yourdomain.com/sitemap.xml
+
+# ============================================
+# SITEMAP PRIORITIES GUIDE
+# ============================================
+
+# 1.0 = Most important (Homepage)
+# 0.9 = Very important (Main services, products)
+# 0.8 = Important (About, Contact, Key pages)
+# 0.7 = Moderately important (Team, Secondary pages)
+# 0.6 = Less important (Blog posts, Articles)
+# 0.5 = Least important (Archive, Old content)
+
+# ============================================
+# CHANGEFREQ GUIDE
+# ============================================
+
+# always  = Document changes every time it's accessed
+# hourly  = Updates multiple times per day
+# daily   = Updates once per day
+# weekly  = Updates once per week (good for most pages)
+# monthly = Updates once per month (good for static pages)
+# yearly  = Rarely changes
+# never   = Archived content

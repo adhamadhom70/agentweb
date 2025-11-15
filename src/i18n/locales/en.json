@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "team": "Team",
+    "services": "Services",
+    "catalog": "Catalog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Excellence in",
+    "titleHighlight": "Luxury Service",
+    "subtitle": "Your personal gateway to extraordinary experiences",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Excellence Redefined",
+    "description": "Since 2010, we have been delivering unparalleled concierge services to discerning clients worldwide. Our commitment to excellence and attention to detail sets us apart in the luxury hospitality industry.",
+    "mission": "Our Mission",
+    "missionText": "To provide exceptional, personalized service that exceeds expectations and creates unforgettable experiences.",
+    "vision": "Our Vision",
+    "visionText": "To be the world's most trusted luxury concierge service, setting the standard for excellence in hospitality."
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Meet the Experts",
+    "description": "Our dedicated professionals bring decades of combined experience in luxury hospitality and lifestyle management."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Tailored Excellence",
+    "vipTravel": "VIP Travel Planning",
+    "vipTravelDesc": "Exclusive travel arrangements and luxury accommodations worldwide",
+    "eventManagement": "Event Management",
+    "eventManagementDesc": "Corporate and private event planning with impeccable execution",
+    "lifestyle": "Lifestyle Management",
+    "lifestyleDesc": "24/7 personal assistance for all your lifestyle needs",
+    "dining": "Dining Reservations",
+    "diningDesc": "Access to exclusive restaurants and private dining experiences"
+  },
+  "catalog": {
+    "title": "Service Catalog",
+    "subtitle": "Explore Our Offerings",
+    "bookService": "Book This Service",
+    "viewDetails": "View Details"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "service": "Service Interested In",
+    "selectService": "Select a service",
+    "message": "Your Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again.",
+    "availability": "Available 24/7",
+    "responseTime": "We respond within 2 hours"
+  },
+  "footer": {
+    "tagline": "Luxury Hospitality Concierge",
+    "subtitle": "Excellence in Service Since 2010",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact"
+  },
+  "whatsapp": {
+    "chatWithUs": "Chat with us",
+    "available": "Available 24/7",
+    "howCanWeHelp": "Hello! 👋 How can we assist you today?",
+    "generalInquiry": "General Inquiry",
+    "generalInquiryMsg": "Hello! I'd like to know more about your services.",
+    "bookConsultation": "Book Consultation",
+    "bookConsultationMsg": "I'd like to schedule a consultation to discuss my needs.",
+    "urgentRequest": "Urgent Request",
+    "urgentRequestMsg": "I need immediate assistance with a time-sensitive matter.",
+    "sendCustom": "Send Custom Message"
+  },
+  "common": {
+    "loading": "Loading...",
+    "welcome": "Welcome",
+    "readMore": "Read More",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}

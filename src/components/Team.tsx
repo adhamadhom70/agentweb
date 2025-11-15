@@ -1,63 +1,119 @@
 import { motion } from 'framer-motion';
-import { User } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Team = () => {
-  const agents = [
-    { name: 'Alexander Sterling', role: 'Chief Concierge', specialty: 'Fine Dining & Events' },
-    { name: 'Victoria Ashford', role: 'Senior Agent', specialty: 'Luxury Accommodations' },
-    { name: 'Sebastian Moore', role: 'Hospitality Specialist', specialty: 'Private Catering' },
-    { name: 'Eleanor Cross', role: 'Guest Relations', specialty: 'Bespoke Experiences' },
-    { name: 'Harrison Webb', role: 'Service Director', specialty: 'Corporate Events' },
-    { name: 'Penelope Grant', role: 'Lifestyle Curator', specialty: 'VIP Services' },
-    { name: 'Theodore Blake', role: 'Culinary Liaison', specialty: 'Gourmet Catering' },
-    { name: 'Arabella Knight', role: 'Concierge Agent', specialty: 'Personal Service' },
+  const { t } = useTranslation();
+  
+  const team = [
+    { name: t('team.members.0.name'), title: t('team.members.0.title'), specialty: t('team.members.0.specialty') },
+    { name: t('team.members.1.name'), title: t('team.members.1.title'), specialty: t('team.members.1.specialty') },
+    { name: t('team.members.2.name'), title: t('team.members.2.title'), specialty: t('team.members.2.specialty') },
+    { name: t('team.members.3.name'), title: t('team.members.3.title'), specialty: t('team.members.3.specialty') },
+    { name: t('team.members.4.name'), title: t('team.members.4.title'), specialty: t('team.members.4.specialty') },
+    { name: t('team.members.5.name'), title: t('team.members.5.title'), specialty: t('team.members.5.specialty') },
+    { name: t('team.members.6.name'), title: t('team.members.6.title'), specialty: t('team.members.6.specialty') },
+    { name: t('team.members.7.name'), title: t('team.members.7.title'), specialty: t('team.members.7.specialty') },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
-    <section className="min-h-screen bg-gradient-to-b from-charcoal to-charcoal-dark py-32 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="team" className="relative py-24 md:py-32 bg-off-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          viewport={{ once: true }}
+          className="mb-20 text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-serif text-6xl md:text-7xl text-primary-red mb-6">The Agents</h2>
-          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
-          <p className="font-sans text-xl text-text-dark/70 max-w-3xl mx-auto leading-relaxed">
-            Our distinguished team of hospitality professionals brings decades of combined
-            experience in delivering exceptional service to the world's most discerning clients.
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-8 h-px bg-forest" />
+            <span className="text-sm font-sans font-semibold text-forest tracking-widest uppercase">{t('team.overline')}</span>
+            <div className="w-8 h-px bg-forest" />
+          </div>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-navy mb-6">
+            {t('team.title')}
+          </h2>
+          <p className="text-lg text-stone font-sans">
+            {t('team.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {agents.map((agent, index) => (
+        {/* Team Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {team.map((member, index) => (
             <motion.div
-              key={agent.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="relative group"
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
+              className="group relative bg-off-white-warm border border-silver rounded-lg overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-gold/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative #bg-card-light-light/50 backdrop-blur-md border border-gold/20 rounded-lg overflow-hidden">
-                <div className="aspect-square bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border border-gold/30">
-                    <User className="w-16 h-16 text-primary-red" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl text-text-dark mb-1">{agent.name}</h3>
-                  <p className="font-sans text-primary-red text-sm mb-2">{agent.role}</p>
-                  <p className="font-sans text-text-dark/60 text-sm">{agent.specialty}</p>
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-forest via-forest/50 to-transparent" />
+
+              {/* Avatar placeholder */}
+              <div className="aspect-square bg-gradient-to-br from-silver/20 to-stone/10 flex items-center justify-center overflow-hidden relative">
+                <motion.div
+                  className="w-24 h-24 rounded-full bg-forest/10 border-2 border-forest/20 flex items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-forest/30 to-forest/5 rounded-full" />
+                </motion.div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-lg font-serif font-semibold text-navy mb-1">{member.name}</h3>
+                <p className="text-sm font-sans font-semibold text-forest mb-3">{member.title}</p>
+                <div className="flex items-center gap-2 text-xs text-stone font-sans pt-3 border-t border-silver">
+                  <span className="w-1.5 h-1.5 rounded-full bg-forest" />
+                  {member.specialty}
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Trust Message */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center max-w-3xl mx-auto bg-off-white-warm border border-silver rounded-lg p-8"
+        >
+          <p className="text-lg text-navy font-serif leading-relaxed">
+            {t('team.quote')}
+          </p>
+          <p className="text-sm text-stone font-sans mt-4">{t('team.quoteAuthor')}</p>
+        </motion.div>
       </div>
     </section>
   );

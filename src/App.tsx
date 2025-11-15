@@ -1,43 +1,63 @@
-import { useState, useEffect, useRef } from 'react';
+import SEO from './components/SEO';
+import StructuredData from './components/StructuredData';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import WhatsAppContactButton from './components/WhatsAppContactButton';
+import ReactGA from 'react-ga4';
+
 import Navigation from './components/Navigation';
 import ParticleSystem from './components/ParticleSystem';
-import Hero from './components/Hero';
+
 import About from './components/About';
 import Team from './components/Team';
+import Testimonials from './components/Testimonials';
 import Services from './components/Services';
 import Catalog from './components/Catalog';
 import Contact from './components/Contact';
+import PremiumHero from './components/PremiumHero';
+import ProfessionalStatsBar from './components/ProfessionalStatsBar';
+import TrustBadgesSection from './components/TrustBadgesSection';
+import ProfessionalFooter from './components/ProfessionalFooter';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
+
+function App(): JSX.Element {
+  const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedService, setSelectedService] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const sectionRefs = {
-    home: useRef<HTMLDivElement>(null),
-    about: useRef<HTMLDivElement>(null),
-    team: useRef<HTMLDivElement>(null),
-    services: useRef<HTMLDivElement>(null),
-    catalog: useRef<HTMLDivElement>(null),
-    contact: useRef<HTMLDivElement>(null),
+    home: useRef<HTMLDivElement | null>(null),
+    about: useRef<HTMLDivElement | null>(null),
+    team: useRef<HTMLDivElement | null>(null),
+    testimonials: useRef<HTMLDivElement | null>(null),
+    services: useRef<HTMLDivElement | null>(null),
+    catalog: useRef<HTMLDivElement | null>(null),
+    contact: useRef<HTMLDivElement | null>(null),
   };
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    try {
+      ReactGA.initialize('YOUR-GA4-MEASUREMENT-ID');
+      ReactGA.send('pageview');
+    } catch {
+      // ignore in dev if GA not configured
+    }
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 1200);
+    return () => clearTimeout(t);
   }, []);
 
   const scrollToSection = (section: string) => {
     const ref = sectionRefs[section as keyof typeof sectionRefs];
-    if (ref.current) {
+    if (ref && ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(section);
     }
   };
 
-  const handleBookNow = () => {
-    scrollToSection('contact');
-  };
+  const handleBookNow = () => scrollToSection('contact');
 
   const handleBookService = (service: string) => {
     setSelectedService(service);
@@ -46,13 +66,14 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = Object.entries(sectionRefs);
+      const entries = Object.entries(sectionRefs) as [string, React.RefObject<HTMLDivElement>][];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      for (const [key, ref] of sections) {
+      for (const [key, ref] of entries) {
         if (ref.current) {
-          const { offsetTop, offsetHeight } = ref.current;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          const top = ref.current.offsetTop;
+          const height = ref.current.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
             setActiveSection(key);
             break;
           }
@@ -60,50 +81,50 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <AnimatePresence>
-{isLoading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            // WAS: #bg-card-light 
-            className="fixed inset-0 z-50 bg-background flex items-center justify-center" 
-          >
-            <div className="text-center">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                // WAS: border-gold/30, border-t-gold
-                className="w-20 h-20 border-4 border-primary/30 border-t-primary rounded-full mx-auto mb-6" 
-              />
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                // WAS: text-primary-red
-                className="font-serif text-4xl text-primary" 
-              >
-                Welcome
-              </motion.h1>
-            </div>
-          </motion.div>
-        )}
+          <SEO />
+      <StructuredData />
 
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+          >
+            <div className="text-center">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: 'linear' }}
+                className="w-20 h-20 border-4 border-primary/30 border-t-primary rounded-full mx-auto mb-6"
+              />
+              <motion.h1
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="font-serif text-3xl text-primary"
+              >
+                Welcome
+              </motion.h1>
+            </div>
+          </motion.div>
+        )}
       </AnimatePresence>
 
       <ParticleSystem />
 
-      <div className="#bg-card-light">
+      <div className="bg-card-light">
         <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
-        <div ref={sectionRefs.home}>
-          <Hero onBookNow={handleBookNow} />
+      <div ref={sectionRefs.home}>
+          <PremiumHero onBookNow={handleBookNow} />
         </div>
 
         <div ref={sectionRefs.about}>
@@ -113,6 +134,15 @@ function App() {
         <div ref={sectionRefs.team}>
           <Team />
         </div>
+
+        <div ref={sectionRefs.testimonials}>
+          <Testimonials />
+        </div>
+
+        <ProfessionalStatsBar />
+        
+        <TrustBadgesSection />
+        
 
         <div ref={sectionRefs.services}>
           <Services />
@@ -126,25 +156,14 @@ function App() {
           <Contact selectedService={selectedService} />
         </div>
 
-        <footer className="#bg-card-light border-t border-gold/20 py-12">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="font-serif text-primary-red text-xl mb-2">Luxury Hospitality Concierge</p>
-            <p className="font-sans text-text-dark/60 text-sm">
-              Excellence in Service Since 2010
-            </p>
-            <div className="mt-6 flex justify-center gap-8">
-              <a href="#" className="font-sans text-text-dark/70 hover:text-primary-red transition-colors text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="font-sans text-text-dark/70 hover:text-primary-red transition-colors text-sm">
-                Terms of Service
-              </a>
-              <a href="#" className="font-sans text-text-dark/70 hover:text-primary-red transition-colors text-sm">
-                Contact
-              </a>
-            </div>
-          </div>
-        </footer>
+        
+        <ProfessionalFooter />
+        
+        <WhatsAppContactButton 
+          phoneNumber="1234567890"
+          message="Hello! I'm interested in your luxury concierge services."
+          position="bottom-right"
+        />
       </div>
     </>
   );

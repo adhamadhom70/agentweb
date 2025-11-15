@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "team": "Équipe",
+    "services": "Services",
+    "catalog": "Catalogue",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Excellence en",
+    "titleHighlight": "Service de Luxe",
+    "subtitle": "Votre portail personnel vers des expériences extraordinaires",
+    "bookNow": "Réserver",
+    "learnMore": "En Savoir Plus"
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Excellence Redéfinie",
+    "description": "Depuis 2010, nous offrons des services de conciergerie inégalés à une clientèle distinguée dans le monde entier. Notre engagement envers l'excellence et l'attention aux détails nous distinguent dans l'industrie de l'hôtellerie de luxe.",
+    "mission": "Notre Mission",
+    "missionText": "Fournir un service exceptionnel et personnalisé qui dépasse les attentes et crée des expériences inoubliables.",
+    "vision": "Notre Vision",
+    "visionText": "Être le service de conciergerie de luxe le plus fiable au monde, établissant la norme d'excellence en matière d'hospitalité."
+  },
+  "team": {
+    "title": "Notre Équipe",
+    "subtitle": "Rencontrez les Experts",
+    "description": "Nos professionnels dévoués apportent des décennies d'expérience combinée dans l'hôtellerie de luxe et la gestion du style de vie."
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Excellence Sur Mesure",
+    "vipTravel": "Planification Voyage VIP",
+    "vipTravelDesc": "Arrangements de voyage exclusifs et hébergements de luxe dans le monde entier",
+    "eventManagement": "Gestion d'Événements",
+    "eventManagementDesc": "Planification d'événements privés et d'entreprise avec une exécution impeccable",
+    "lifestyle": "Gestion du Style de Vie",
+    "lifestyleDesc": "Assistance personnelle 24/7 pour tous vos besoins de style de vie",
+    "dining": "Réservations Restaurant",
+    "diningDesc": "Accès à des restaurants exclusifs et expériences culinaires privées"
+  },
+  "catalog": {
+    "title": "Catalogue de Services",
+    "subtitle": "Explorez Nos Offres",
+    "bookService": "Réserver ce Service",
+    "viewDetails": "Voir les Détails"
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Prenez Contact",
+    "name": "Nom Complet",
+    "email": "Adresse Email",
+    "phone": "Numéro de Téléphone",
+    "service": "Service d'Intérêt",
+    "selectService": "Sélectionner un service",
+    "message": "Votre Message",
+    "submit": "Envoyer le Message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès!",
+    "error": "Échec de l'envoi du message. Veuillez réessayer.",
+    "availability": "Disponible 24/7",
+    "responseTime": "Nous répondons sous 2 heures"
+  },
+  "footer": {
+    "tagline": "Conciergerie Hôtelière de Luxe",
+    "subtitle": "Excellence en Service Depuis 2010",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "contact": "Contact"
+  },
+  "whatsapp": {
+    "chatWithUs": "Chattez avec nous",
+    "available": "Disponible 24/7",
+    "howCanWeHelp": "Bonjour! 👋 Comment pouvons-nous vous aider aujourd'hui?",
+    "generalInquiry": "Demande Générale",
+    "generalInquiryMsg": "Bonjour! J'aimerais en savoir plus sur vos services.",
+    "bookConsultation": "Réserver une Consultation",
+    "bookConsultationMsg": "J'aimerais planifier une consultation pour discuter de mes besoins.",
+    "urgentRequest": "Demande Urgente",
+    "urgentRequestMsg": "J'ai besoin d'une assistance immédiate pour une affaire urgente.",
+    "sendCustom": "Envoyer un Message Personnalisé"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "welcome": "Bienvenue",
+    "readMore": "Lire Plus",
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  }
+}
